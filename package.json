@@ -1,0 +1,19 @@
+{
+  "name": "reactintl-to-xliff",
+  "version": "1.0.0",
+  "description": "Converts reactintl files to XLIFF",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "xliff",
+    "reactintl",
+    "react"
+  ],
+  "author": "Enabled Solutions",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "0.0.2"
+  }
+}
