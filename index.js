@@ -1,15 +1,31 @@
 var fs = require('fs');
 var builder = require('xmlbuilder');
 
-//Read file to JSON object - file is JSON encoded with id for each message as key
+/*
+    Utility function for determining if something is null or undefined
+*/
+function isNullOrUndefined(object) {
+  return object === null || object === undefined;
+}
+
+/*
+  Read a file to JSON object
+  React INTL file is JSON encoded with id for each message as key
+*/
 function readFileToJSONObject(filename) {
   obj = {};
 
   return obj;
 }
 
-function createTransUnitElement() {
-
+/*
+    Create a Trans-Unit XLIFF element.
+    This element will contain the source and target elements for each message.
+*/
+function createTransUnitElement(parentElement) {
+  if(isNullOrUndefined(parentElement)) {
+    //TODO: Throw exception
+  }
 }
 
 /*
@@ -18,11 +34,28 @@ function createTransUnitElement() {
             elementText
         </elementName>
 */
-function createElement(elementName, elementText, attributeObject) {
+function createElement(elementName, elementText, attributeObject, parentElement) {
+  //Check if parentElement is defined, throw exception 
+  if(isNullOrUndefined(parentElement)) {
+    //TODO: Throw exception
+  }
+
+  var newElement = parentElement.ele('elementName');
+  /*
+  for key in attributeObject
+    newElement.att(key, attributeObject[key])
+  */
 
 }
 
-function createCompositeXLIFFFile(sourceLanguage, sourceFile, targetLanguage, targetFile) {
+/*
+    Take two React INTL files (in two distinct languages) and create an XLIFF file containing all messages and their target language translations.
+    Options object attributes:
+      - createPlaceholderElements: if a message is in the sourceFile and not in the targetObject, create a blank target element
+*/
+function createCompositeXLIFFFile(sourceLanguage, sourceFile, targetLanguage, targetFile, options) {
+
+
   var sourceReactObj = readFileToJSONObject(sourceFile);
   var targetReactObj = readFileToJSONObject(targetFile);
 
@@ -34,6 +67,10 @@ function createCompositeXLIFFFile(sourceLanguage, sourceFile, targetLanguage, ta
   */
 }
 
+/*
+    Take a source React-INTL file and output an XLIFF file with empty elements for the target language
+    
+*/
 function createBlankXLIFFFile(sourceLanguage, sourceFile, targetLanguage) {
 
   var reactIntlLines = readFileToJSONObject(sourceFile);
@@ -72,6 +109,4 @@ function createBlankXLIFFFile(sourceLanguage, sourceFile, targetLanguage) {
   }
 }
 
-function processLine(line) {
 
-}
