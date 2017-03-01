@@ -1,4 +1,5 @@
 var fs = require('fs');
+var builder = require('xmlbuilder');
 
 function readFileToArray(filename) {
 
@@ -20,7 +21,7 @@ function createBlankXLIFFFile(sourceLanguage,targetLanguage,reactIntlLines) {
     line.att('id', lineProperties.id);
 
     line.ele('source');
-    
+
     line.ele('target');
 
   }
